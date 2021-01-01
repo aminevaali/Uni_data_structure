@@ -5,7 +5,17 @@
 using namespace std;
 
 int main() {
-    testLinkedList();
+    Stack<int> s;
+    s.push(51);
+    s.push(40);
+    s.push(27);
+    s.push(25);
+    s.push(19);
+
+    while(!s.empty()){
+        cout << s.pop() << endl;
+    }
+
     return 0;
 
 

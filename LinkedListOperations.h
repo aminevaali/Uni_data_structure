@@ -10,12 +10,6 @@
 using namespace std;
 
 template<class T>
-struct Node {
-    T info;
-    Node<T> *next;
-};
-
-template<class T>
 void writeList(Node<T> *p) {
     Node<T> *q = p;
     while (q != NULL) {
