@@ -5,6 +5,10 @@
 using namespace std;
 
 int main() {
+    testLinkedList();
+    return 0;
+
+
     PriorityQueue<int, 10> pq;
     pq.insert(5);
     pq.insert(6);
@@ -24,7 +28,7 @@ int main() {
 
     for(int i = 1; i <= 10; i++){
         if(!pq.insert(20 - i * 2)){
-            cout << "cannot insert " << endl;
+            cout << "cannot insertWithOrder " << endl;
         }
     }
 
