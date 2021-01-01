@@ -1,0 +1,3 @@
+/home/amin/CLionProjects/DS/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/amin/CLionProjects/DS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/amin/CLionProjects/DS/cmake-build-debug/CMakeFiles/DS.dir
