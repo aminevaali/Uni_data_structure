@@ -89,6 +89,52 @@ public:
 };
  */
 
+template<class T>
+class Queue{
+private:
+    Node<T> *front, *rear;
+public:
+    Queue(){
+        front = rear = NULL;
+    }
+
+    bool empty(){
+        if(front == NULL)
+            return true;
+        return false;
+    }
+
+    void insert(T x){
+        Node<T> *p = new Node<T>;
+        p->info = x;
+        p->next = NULL;
+        if(rear == NULL){
+            rear = front = p;
+        }else{
+            rear->next = p;
+            rear = p;
+        }
+    }
+
+    T remove(){
+        if(empty()){
+            cout << "Queue is empty";
+            exit(1);
+        }
+
+        Node<T> *tmp = front;
+        front = front->next;
+        if(front == NULL)
+            rear = NULL;
+
+        tmp->next = NULL;
+        T result = tmp->info;
+        delete tmp;
+        return result;
+    }
+};
+
+/*
 template<class T, int MAX>
 class Queue {
 private:
@@ -138,6 +184,7 @@ public:
         }
     }
 };
+*/
 
 template<class T, int MAX>
 class PriorityQueue {

@@ -5,6 +5,20 @@
 using namespace std;
 
 int main() {
+    Queue<double> q;
+    q.insert(72);
+    q.insert(51);
+    q.insert(40);
+    q.insert(27);
+    q.insert(25);
+    q.insert(19);
+
+    while(!q.empty()){
+        cout << q.remove() << endl;
+    }
+
+    return 0;
+
     Stack<int> s;
     s.push(51);
     s.push(40);
@@ -45,34 +59,4 @@ int main() {
     while(!pq.empty()){
         cout << pq.minDelete() << endl;
     }
-
-    return 0;
-
-    Queue<int, 10> q;
-    q.insert(50);
-    q.insert(40);
-
-    cout << q.len() << endl;
-
-    q.insert(26);
-    q.insert(24);
-    q.insert(19);
-
-    cout << q.len() << endl;
-
-    cout << q.remove() << endl;
-    cout << q.remove() << endl;
-
-    cout << q.len() << endl;
-
-    cout << q.remove() << endl;
-    cout << q.remove() << endl;
-
-    cout << q.len() << endl;
-
-    cout << q.remove() << endl;
-
-    cout << q.len() << endl;
-
-    return 0;
 }
