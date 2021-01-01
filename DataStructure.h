@@ -240,4 +240,129 @@ public:
 
 };
 
+template<class T>
+class PriorityQueue1 {
+private:
+    Node<T> *front, *rear;
+public:
+    PriorityQueue1() {
+        front = rear = NULL;
+    }
+
+    bool empty() {
+        if (front == NULL)
+            return true;
+        return false;
+    }
+
+    void insert(T x) {
+        // todo insert with order
+        Node<T> *q = front;
+        Node<T> *r = NULL;
+        while (q != NULL && q->info > x) {
+            r = q;
+            q = q->next;
+        }
+
+        Node<T> *t = new Node<T>();
+        t->info = x;
+        if (r == NULL) {
+            if (rear == NULL) {
+                rear = front = t;
+            } else {
+                t->next = front;
+                front = t;
+            }
+        }else{
+            t->next = r->next;
+            r->next = t;
+        }
+    }
+
+    T remove() {
+        if (empty()) {
+            cout << "PriorityQueue is empty";
+            exit(1);
+        }
+
+        Node<T> *p = front;
+        front = front->next;
+        if (front == NULL)
+            rear = NULL;
+        p->next = NULL;
+        T x = p->info;
+        delete p;
+        return x;
+    }
+};
+
+template<class T>
+class PriorityQueue2 {
+private:
+    Node<T> *front, *rear;
+public:
+    PriorityQueue2() {
+        front = rear = NULL;
+    }
+
+    bool empty() {
+        if (front == NULL)
+            return true;
+        return false;
+    }
+
+    void insert(T x) {
+        Node<T> *p = new Node<T>();
+        p->info = x;
+        p->next = NULL;
+
+        if (rear == NULL) {
+            rear = front = p;
+        } else {
+            rear->next = p;
+            rear = p;
+        }
+    }
+
+    T remove() {
+        if (empty()) {
+            cout << "PriorityQueue is empty";
+            exit(1);
+        }
+
+        Node<T> *q = front;
+        Node<T> *r = NULL;
+        Node<T> *maxptr = NULL;
+        T max = q->info;
+        while (q != NULL) {
+            if (q->info > max) {
+                max = q->info;
+                maxptr = r;
+            }
+            r = q;
+            q = q->next;
+        }
+
+        if (maxptr == NULL) {
+            q = front;
+            front = front->next;
+            if (front == NULL) {
+                rear = NULL;
+            }
+            q->next = NULL;
+            T x = q->info;
+            delete q;
+            return x;
+        } else {
+            q = maxptr->next;
+            maxptr->next = q->next;
+            q->next = NULL;
+            T x = q->info;
+            delete q;
+            return x;
+        }
+    }
+};
+
+
 #endif //DS_DATASTRUCTURE_H
